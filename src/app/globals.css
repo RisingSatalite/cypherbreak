@@ -29,3 +29,7 @@ body {
 input {
   color: black;
 }
+
+button {
+  background-color: rgb(7, 7, 110);
+}
