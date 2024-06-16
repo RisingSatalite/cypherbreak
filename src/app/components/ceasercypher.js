@@ -2,40 +2,72 @@
 import { useState } from 'react';
 
 export default function ceaserCypher(){
+    const [shift, setShift] = useState(1);
     const [encyptInput, setEcyptInput] = useState('');
     const [Edisplay, EsetDisplay] = useState('');
     const [decyptInput, setDecyptInput] = useState('');
     const [Ddisplay, DsetDisplay] = useState('');
 
-    const Encypt = (value) => {
-        EsetDisplay(value)
+    const caesarShift = (text, shift) => {
+        const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+        let result = '';
+
+        console.log(text)
+        console.log(shift)
+      
+        for (let i = 0; i < text.length; i++) {
+          const char = text[i];
+          const index = alphabet.indexOf(char.toLowerCase());
+      
+          if (index !== -1) {
+            const shiftedIndex = (index + shift) % alphabet.length;
+            result += alphabet[shiftedIndex];
+          } else {
+            result += char;
+          }
+        }
+      
+        return result;
+      }
+
+    const Encypt = (value, shift) => {
+        EsetDisplay(caesarShift(value,shift))
     }
-    const Decypt = (value) => {
-        DsetDisplay(value)
+    const Decypt = (value, shift) => {
+        DsetDisplay(caesarShift(value,0-shift))
     }
     return(
         <div>
+            <input 
+                type="number" 
+                min="1" 
+                max="25" 
+                step="1"
+                value={shift} 
+                onChange={(e) => setShift(e.target.value)}
+                placeholder="Select shift value"
+            />
             <h2>Ceaser Cypher</h2>
             <input 
                 type="text" 
                 value={encyptInput} 
                 onChange={(e) => setEcyptInput(e.target.value)}
-                placeholder="Enter text" 
+                placeholder="Enter text"
             />
-            <button onClick={() => Encypt(encyptInput)}>
+            <button onClick={() => Encypt(encyptInput, shift)}>
                 <div>Encypt</div>
             </button>
             <div>{Edisplay}</div>
             <input 
                 type="text" 
-                value={encyptInput} 
+                value={decyptInput} 
                 onChange={(e) => setDecyptInput(e.target.value)}
                 placeholder="Enter converted" 
             />
-            <button onClick={() => Decypt(button)}>
+            <button onClick={() => Decypt(decyptInput, shift)}>
                 <div>Decypt</div>
             </button>
-            <div>{Edisplay}</div>
+            <div>{Ddisplay}</div>
         </div>
     )
 }
