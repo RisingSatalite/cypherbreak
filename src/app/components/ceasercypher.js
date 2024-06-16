@@ -43,7 +43,7 @@ export default function ceaserCypher(){
         }
     }
     return(
-        <div>
+        <div class="cypher-style bg-orange-950">
             <h2>Ceaser Cypher</h2>
             <div>
                 <input 

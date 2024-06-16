@@ -33,3 +33,9 @@ input {
 button {
   background-color: rgb(7, 7, 110);
 }
+
+.cypher-style {
+  width: 100%;
+  max-width: 1000px;
+  align-items: center;
+}
