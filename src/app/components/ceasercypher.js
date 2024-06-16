@@ -12,29 +12,29 @@ export default function ceaserCypher(){
         const alphabet = 'abcdefghijklmnopqrstuvwxyz';
         let result = '';
 
-        console.log(text)
-        console.log(shift)
-      
         for (let i = 0; i < text.length; i++) {
-          const char = text[i];
-          const index = alphabet.indexOf(char.toLowerCase());
-      
-          if (index !== -1) {
-            const shiftedIndex = (index + shift) % alphabet.length;
+            const char = text[i];
+            const index = alphabet.indexOf(char.toLowerCase());
+
+            if (index !== -1) {
+                let shiftedIndex = (index + shift) % alphabet.length;
+            if (shiftedIndex < 0) {
+                shiftedIndex += alphabet.length;
+            }
             result += alphabet[shiftedIndex];
-          } else {
+            } else {
             result += char;
-          }
+            }
         }
-      
+
         return result;
-      }
+    }
 
     const Encypt = (value, shift) => {
         EsetDisplay(caesarShift(value,shift))
     }
     const Decypt = (value, shift) => {
-        DsetDisplay(caesarShift(value,0-shift))
+        DsetDisplay(caesarShift(value, -shift))
     }
     return(
         <div>
