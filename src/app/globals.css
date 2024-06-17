@@ -49,11 +49,11 @@ button {
 
 .base-image {
   position: absolute;
-  top: 14px;
+  top: 18px;
   left: 21px;
   z-index: 1;
   width: 160px;
-  height: 175px;
+  height: 160px;
 }
 
 .overlay-image {
