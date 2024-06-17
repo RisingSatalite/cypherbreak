@@ -48,14 +48,14 @@ export default function ceaserCypher(){
             <div class="image-container">
                 <Image 
                 src="/CeaserCypher3.png"
-                width={150}
-                height={150}
+                width={90}
+                height={90}
                 class="base-image"
                 />
                 <Image 
                 src="/CeaserCypher3.png"
-                width={120}
-                height={120}
+                width={200}
+                height={200}
                 class="overlap-image"
                 />
             </div>
