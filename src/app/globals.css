@@ -37,5 +37,28 @@ button {
 .cypher-style {
   width: 100%;
   max-width: 1000px;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  min-height: 200px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.base-image {
+  position: absolute;
+  top: 200;
+  left: 200;
+  z-index: 1;
+  width: 90px;
+  height: 90px;
+}
+
+.overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }

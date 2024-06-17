@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import Image from 'next/image'
 
 export default function ceaserCypher(){
     const [shift, setShift] = useState(1);
@@ -44,6 +45,21 @@ export default function ceaserCypher(){
     }
     return(
         <div class="cypher-style bg-orange-950">
+            <div class="image-container">
+                <Image 
+                src="/CeaserCypher3.png"
+                width={150}
+                height={150}
+                class="base-image"
+                />
+                <Image 
+                src="/CeaserCypher3.png"
+                width={120}
+                height={120}
+                class="overlap-image"
+                />
+            </div>
+            <div>
             <h2>Ceaser Cypher</h2>
             <div>
                 <input 
@@ -77,6 +93,7 @@ export default function ceaserCypher(){
                 <div>Decypt</div>
             </button>
             <div>{Ddisplay}</div>
+            </div>
         </div>
     )
 }
