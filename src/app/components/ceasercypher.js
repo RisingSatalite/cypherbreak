@@ -10,14 +10,14 @@ export default function ceaserCypher(){
     const [Ddisplay, DsetDisplay] = useState('');
 
     //Image rotations
-    const [rotation, setRotation] = useState(0);
+    const [rotation, setRotation] = useState(14);
 
     useEffect(() => {
         const image = document.getElementById('ceasercypherinternalimage');
-        setRotation(360 * (shift / 25))
-        console.log(shift)
-        console.log(rotation)
-        image.style.transform = `rotate(${rotation}deg)`;
+        
+        const rotate = (Math.round(360 * (shift / 26)))
+        setRotation(rotate)
+        image.style.transform = `rotate(${rotate}deg)`;//Do not set it from the setRotation immediate, because there was not enough time to update it before being called again.
       }, [shift]);
 
     const caesarShift = (text, shift) => {
@@ -76,8 +76,8 @@ export default function ceaserCypher(){
             <div>
                 <input 
                     type="number" 
-                    min="1" 
-                    max="25" 
+                    min="0" 
+                    max="26" 
                     step="1"
                     value={shift} 
                     onChange={(e) => setShift(e.target.value)}
