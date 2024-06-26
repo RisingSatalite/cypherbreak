@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image'
 
-export default function ceaserCypher(){
+export default function CeaserCypher(){
     const [shift, setShift] = useState(1);
     const [encyptInput, setEcyptInput] = useState('');
     const [Edisplay, EsetDisplay] = useState('');
