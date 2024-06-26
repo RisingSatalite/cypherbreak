@@ -42,6 +42,12 @@ export default function ceaserCypher(){
         return result;
     }
 
+    const shiftChange= (e) => {
+        setShift(e)
+        Decypt(decyptInput, shift)
+        Encypt(encyptInput, shift)
+    }
+
     const Encypt = (value, shift) => {
         EsetDisplay(caesarShift(value,shift))
         if(value === ""){
@@ -80,7 +86,7 @@ export default function ceaserCypher(){
                     max="26" 
                     step="1"
                     value={shift} 
-                    onChange={(e) => setShift(e.target.value)}
+                    onChange={(e) => shiftChange(e.target.value)}
                     placeholder="Select shift value"
                 />
                 <span>Cypher Shift</span>
