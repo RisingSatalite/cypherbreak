@@ -3,6 +3,7 @@ import Ceasercypher from "./components/ceasercypher";
 import AffineCypher from "./components/affinecypher";
 import CeaserCypherInfo from "./components/ceasercypherinfo";
 import Nav from "./components/nav";
+import AffineCypherInfo from "./components/affinecypherinfo";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Ceasercypher></Ceasercypher>
       <CeaserCypherInfo></CeaserCypherInfo>
       <AffineCypher></AffineCypher>
+      <AffineCypherInfo></AffineCypherInfo>
     </main>
   );
 }
