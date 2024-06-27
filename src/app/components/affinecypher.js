@@ -15,14 +15,15 @@ export default function AffineCypher(){
         Encypt(encyptInput)
     }, [shift, shift2]);
 
+    // Function to perform affine cipher encryption or decryption
     function affineCipher(text, a, b, mode) {
         const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const result = [];
-    
+
         for (let i = 0; i < text.length; i++) {
             const char = text.toUpperCase()[i];
             const index = alphabet.indexOf(char);
-    
+
             if (index !== -1) {
                 let calculation;
                 if (mode === 'encrypt') {
@@ -38,10 +39,11 @@ export default function AffineCypher(){
                 result.push(char);
             }
         }
-    
+
         return result.join(''); // Convert array to string
     }
-    
+
+    // Function to calculate modular multiplicative inverse of a under modulo m
     function modInv(a, m) {
         a = ((a % m) + m) % m;
         for (let x = 1; x < m; x++) {
