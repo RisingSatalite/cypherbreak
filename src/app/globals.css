@@ -41,6 +41,8 @@ button {
   justify-content: center;
   align-items: center;
   min-height: 200px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(67 20 7 / var(--tw-bg-opacity));
 }
 
 .image-container {

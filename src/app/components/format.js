@@ -1,8 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
-import Image from 'next/image'
 
-export default function CeaserCypher(){
+export default function CypherName(){
     const [shift, setShift] = useState(1);
     const [encyptInput, setEcyptInput] = useState('');
     const [Edisplay, EsetDisplay] = useState('');
