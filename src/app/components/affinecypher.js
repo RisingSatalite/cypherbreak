@@ -49,14 +49,14 @@ export default function AffineCypher(){
 
     const shiftChange= (e) => {
         setShift(e)
-        Decypt(decyptInput, shift)
-        Encypt(encyptInput, shift)
+        Decypt(decyptInput)
+        Encypt(encyptInput)
     }
 
     const shiftChange2= (e) => {
         setShift2(e)
-        Decypt(decyptInput, shift)
-        Encypt(encyptInput, shift)
+        Decypt(decyptInput)
+        Encypt(encyptInput)
     }
 
     const Encypt = (value) => {
