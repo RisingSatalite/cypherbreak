@@ -8,9 +8,6 @@ export default function CypherName(){
     const [decyptInput, setDecyptInput] = useState('');
     const [Ddisplay, DsetDisplay] = useState('');
 
-    //Image rotations
-    const [rotation, setRotation] = useState(14);
-
     useEffect(() => {
         const image = document.getElementById('ceasercypherinternalimage');
         

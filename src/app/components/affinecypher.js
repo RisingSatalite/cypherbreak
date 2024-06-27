@@ -22,7 +22,7 @@ export default function AffineCypher(){
             return affineDecrypt(text, a, b)
         }
 
-        alert("wrong")
+        alert("Something went wrong, please try again")
 
         /*
         const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
