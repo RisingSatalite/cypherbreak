@@ -10,6 +10,11 @@ export default function AffineCypher(){
     const [decyptInput, setDecyptInput] = useState('');
     const [Ddisplay, DsetDisplay] = useState('');
 
+    useEffect(() => {
+        Decypt(decyptInput)
+        Encypt(encyptInput)
+    }, [shift, shift2]);
+
     function affineCipher(text, a, b, mode) {
         const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const result = [];

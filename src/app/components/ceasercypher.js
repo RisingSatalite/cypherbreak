@@ -69,12 +69,14 @@ export default function CeaserCypher(){
                 width={90}
                 height={90}
                 class="base-image"
+                alt='An image of the 26 letters of the enghlish alphabet around a circle'
                 />
                 <Image 
                 src="/CeaserCypher3.png"
                 width={200}
                 height={200}
                 class="overlap-image"
+                alt='An image of the 26 letters of the enghlish alphabet around a circle'
                 />
             </div>
             <div>
