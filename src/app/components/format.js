@@ -1,16 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react';
-import Image from 'next/image'
 
-export default function CeaserCypher(){
+export default function CypherName(){
     const [shift, setShift] = useState(1);
     const [encyptInput, setEcyptInput] = useState('');
     const [Edisplay, EsetDisplay] = useState('');
     const [decyptInput, setDecyptInput] = useState('');
     const [Ddisplay, DsetDisplay] = useState('');
-
-    //Image rotations
-    const [rotation, setRotation] = useState(14);
 
     useEffect(() => {
         const image = document.getElementById('ceasercypherinternalimage');
@@ -62,23 +58,6 @@ export default function CeaserCypher(){
     }
     return(
         <div class="cypher-style">
-            <div class="image-container">
-                <Image 
-                id="ceasercypherinternalimage"
-                src="/CeaserCypher3.png"
-                width={90}
-                height={90}
-                class="base-image"
-                alt='An image of the 26 letters of the enghlish alphabet around a circle'
-                />
-                <Image 
-                src="/CeaserCypher3.png"
-                width={200}
-                height={200}
-                class="overlap-image"
-                alt='An image of the 26 letters of the enghlish alphabet around a circle'
-                />
-            </div>
             <div>
             <h2>Ceaser Cypher</h2>
             <div>
