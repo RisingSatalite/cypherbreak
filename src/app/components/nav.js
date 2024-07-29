@@ -1,7 +1,7 @@
 export default function Nav(){
     return(
         <div>
-            <nav><a href=""><div>Back home</div></a></nav>
+            <nav><a href=""><div>CYpher break home</div></a></nav>
         </div>
     )
 }
