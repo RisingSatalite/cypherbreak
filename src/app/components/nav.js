@@ -1,7 +1,9 @@
+import Link from "next/link"
+
 export default function Nav(){
     return(
         <div>
-            <nav><a href=""><div>CYpher break home</div></a></nav>
+            <nav><Link href=""><div>Cypher break home</div></Link></nav>
         </div>
     )
 }

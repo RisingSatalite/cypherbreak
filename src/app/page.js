@@ -1,8 +1,9 @@
+'use client'
+
 import Image from "next/image";
 import Ceasercypher from "./components/ceasercypher";
 import AffineCypher from "./components/affinecypher";
 import CeaserCypherInfo from "./components/ceasercypherinfo";
-import Nav from "./components/nav";
 import AffineCypherInfo from "./components/affinecypherinfo";
 
 export default function Home() {
