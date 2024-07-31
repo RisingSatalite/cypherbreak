@@ -1,3 +1,5 @@
+'use client'
+
 import Ceasercypher from "../../components/ceasercypher";
 import CeaserCypherInfo from "../../components/ceasercypherinfo";
 
