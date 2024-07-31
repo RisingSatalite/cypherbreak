@@ -1,13 +1,14 @@
 'use client'
 
-import Link from "next/link";
+import AffineCypher from "@/components/affinecypher";
+import AffineCypherInfo from "@/components/affinecypherinfo";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
       <div class="p-10">Cypher Break</div>
-      <Link href="/ceaser"><div>Ceaser cypher</div></Link>
-      <Link href="/affine"><div>Affine cypher</div></Link>
+      <AffineCypher/>
+      <AffineCypherInfo/>
     </main>
   );
 }
