@@ -1,8 +1,5 @@
-'use client'
-
-import Image from "next/image";
-import Ceasercypher from "../components/ceasercypher";
-import CeaserCypherInfo from "../components/ceasercypherinfo";
+import Ceasercypher from "../../components/ceasercypher";
+import CeaserCypherInfo from "../../components/ceasercypherinfo";
 
 export default function Home() {
   return (
