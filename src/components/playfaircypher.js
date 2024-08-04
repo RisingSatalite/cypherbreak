@@ -1,5 +1,11 @@
-// JavaScript program to implement Playfair Cipher
+'use client'
+import { useState, useEffect } from 'react';
 export default function PlayfairCypher(){
+    const [key, setKey] = useState("")
+    const [encyptInput, setEcyptInput] = useState("")
+    const [decyptInput, setDecyptInput] = useState("")
+    const [Edisplay, setEdisplay] = useState("")
+    const [Ddisplay, setDisplay] = useState("")
 
         // Function to generate the 5x5 key square
         function generateKeyTable(key, ks, keyT) {
@@ -254,35 +260,24 @@ export default function PlayfairCypher(){
           }
           
           // Example usage
-          var str = "gatlmzclrqtx";
-          var key = "Monarchy";
-          
-          // Key to be decrypted
-          console.log("Key text:", key);
-          
-          // Ciphertext to be decrypted
-          console.log("Plain text:", str);
-          
+
           // decrypt using Playfair Cipher
-          var plainText = decryptByPlayfairCipher(str, key);
+          //var plainText = decryptByPlayfairCipher(str, key);
           
           // Decrypted text
-          console.log("Deciphered text:", plainText);
+          //console.log("Deciphered text:", plainText);
           
     return(
         <div class="cypher-style">
-            <h2>Ceaser Cypher</h2>
+            <h2>Playfair Cypher</h2>
             <div>
                 <input 
-                    type="number" 
-                    min="0" 
-                    max="26" 
-                    step="1"
-                    value={shift} 
-                    onChange={(e) => shiftChange(e.target.value)}
-                    placeholder="Select shift value"
+                    type="text" 
+                    value={key}
+                    onChange={(e) => setKey(e.target.value)}
+                    placeholder="Enter cypher key"
                 />
-                <span>Cypher Shift</span>
+                <span>Cypher Key</span>
             </div>
             <input 
                 type="text" 

@@ -8,6 +8,7 @@ export default function Home() {
       <div class="p-10">Cypher Break</div>
       <Link href="/ceaser"><div>Ceaser cypher</div></Link>
       <Link href="/affine"><div>Affine cypher</div></Link>
+      <Link href="/playfair"><div>Playfair cypher</div></Link>
     </main>
   );
 }
