@@ -1,5 +1,6 @@
 // JavaScript program to implement Playfair Cipher
-
+export default function PlayfairCypher(){
+    
         // Function to generate the 5x5 key square
         function generateKeyTable(key, ks, keyT) {
             let i, j, k, flag = 0;
@@ -138,23 +139,136 @@
             let kt = generateKeyTable(key, ks, keyT);
             return encrypt(str, kt, ps);
         }
-
-        // Driver code
-        let key = " Monarchyj";
-        let str = " instruments";
-
-        // Key to be encrypted
-
-        console.log("Key text: " + key + "<br>");
-
-        console.log("Plain text: " + str + "<br>");
-        // encrypt using Playfair Cipher
-
-        console.log("Cipher text: " + encryptByPlayfairCipher(str, key));
         
-        // This code is contributed by poojaagarwal2
-
-export default function PlayfairCypher(){
+        function toLowerCase(plain) {
+            // Convert all the characters of a string to lowercase
+            return plain.toLowerCase();
+          }
+          
+          function removeSpaces(plain) {
+            // Remove all spaces in a string
+            // can be extended to remove punctuation
+            return plain.split(' ').join('');
+          }
+          
+          function generateKeyTable(key) {
+            // generates the 5x5 key square
+            var keyT = new Array(5).fill(null).map(() => new Array(5).fill(''));
+            var dicty = {};
+            for (var i = 0; i < 26; i++) {
+              dicty[String.fromCharCode(i + 97)] = 0;
+            }
+          
+            for (var i = 0; i < key.length; i++) {
+              if (key[i] != 'j') {
+                dicty[key[i]] = 2;
+              }
+            }
+            dicty['j'] = 1;
+          
+            var i = 0, j = 0, k = 0;
+            while (k < key.length) {
+              if (dicty[key[k]] == 2) {
+                dicty[key[k]] -= 1;
+                keyT[i][j] = key[k];
+                j += 1;
+                if (j == 5) {
+                  i += 1;
+                  j = 0;
+                }
+              }
+              k += 1;
+            }
+          
+            for (var k in dicty) {
+              if (dicty[k] == 0) {
+                keyT[i][j] = k;
+                j += 1;
+                if (j == 5) {
+                  i += 1;
+                  j = 0;
+                }
+              }
+            }
+          
+            return keyT;
+          }
+          
+          function search(keyT, a, b) {
+            // Search for the characters of a digraph in the key square and return their position
+            var arr = [0, 0, 0, 0];
+          
+            if (a == 'j') {
+              a = 'i';
+            } else if (b == 'j') {
+              b = 'i';
+            }
+          
+            for (var i = 0; i < 5; i++) {
+              for (var j = 0; j < 5; j++) {
+                if (keyT[i][j] == a) {
+                  arr[0] = i;
+                  arr[1] = j;
+                } else if (keyT[i][j] == b) {
+                  arr[2] = i;
+                  arr[3] = j;
+                }
+              }
+            }
+          
+            return arr;
+          }
+          
+          function mod5(a) {
+            // Function to find the modulus with 5
+            if (a < 0) {
+              a += 5;
+            }
+            return a % 5;
+          }
+          function decrypt(str, keyT) {
+          // Function to decrypt
+          var ps = str.length;
+          var i = 0;
+          while (i < ps) {
+          var a = search(keyT, str[i], str[i + 1]);
+          if (a[0] == a[2]) {
+          str = str.slice(0, i) + keyT[a[0]][mod5(a[1] - 1)] + keyT[a[0]][mod5(a[3] - 1)] + str.slice(i + 2);
+          } else if (a[1] == a[3]) {
+          str = str.slice(0, i) + keyT[mod5(a[0] - 1)][a[1]] + keyT[mod5(a[2] - 1)][a[1]] + str.slice(i + 2);
+          } else {
+          str = str.slice(0, i) + keyT[a[0]][a[3]] + keyT[a[2]][a[1]] + str.slice(i + 2);
+          }
+          i += 2;
+          }
+          return str;
+          }
+          
+          function decryptByPlayfairCipher(str, key) {
+          // Function to call decrypt
+          var ks = key.length;
+          key = removeSpaces(toLowerCase(key));
+          str = removeSpaces(toLowerCase(str));
+          var keyT = generateKeyTable(key);
+          return decrypt(str, keyT);
+          }
+          
+          // Example usage
+          var str = "gatlmzclrqtx";
+          var key = "Monarchy";
+          
+          // Key to be decrypted
+          console.log("Key text:", key);
+          
+          // Ciphertext to be decrypted
+          console.log("Plain text:", str);
+          
+          // decrypt using Playfair Cipher
+          var plainText = decryptByPlayfairCipher(str, key);
+          
+          // Decrypted text
+          console.log("Deciphered text:", plainText);
+          
     return(
         <div classs="cypher-style">
         </div>
