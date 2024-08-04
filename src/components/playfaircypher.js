@@ -1,6 +1,6 @@
 // JavaScript program to implement Playfair Cipher
 export default function PlayfairCypher(){
-    
+
         // Function to generate the 5x5 key square
         function generateKeyTable(key, ks, keyT) {
             let i, j, k, flag = 0;
@@ -270,7 +270,40 @@ export default function PlayfairCypher(){
           console.log("Deciphered text:", plainText);
           
     return(
-        <div classs="cypher-style">
+        <div class="cypher-style">
+            <h2>Ceaser Cypher</h2>
+            <div>
+                <input 
+                    type="number" 
+                    min="0" 
+                    max="26" 
+                    step="1"
+                    value={shift} 
+                    onChange={(e) => shiftChange(e.target.value)}
+                    placeholder="Select shift value"
+                />
+                <span>Cypher Shift</span>
+            </div>
+            <input 
+                type="text" 
+                value={encyptInput} 
+                onChange={(e) => setEcyptInput(e.target.value)}
+                placeholder="Enter text to encypt"
+            />
+            <button onClick={() => Encypt(encyptInput, shift)}>
+                <div>Encypt</div>
+            </button>
+            <div>{Edisplay}</div>
+            <input 
+                type="text" 
+                value={decyptInput} 
+                onChange={(e) => setDecyptInput(e.target.value)}
+                placeholder="Enter text to decrypt" 
+            />
+            <button onClick={() => Decypt(decyptInput, shift)}>
+                <div>Decypt</div>
+            </button>
+            <div>{Ddisplay}</div>
         </div>
     )
 }
