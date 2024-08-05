@@ -284,7 +284,6 @@ export default function PlayfairCypher(){
                     onChange={(e) => setKey(e.target.value)}
                     placeholder="Enter cypher key"
                 />
-                <span>Cypher Key</span>
             </div>
             <input 
                 type="text" 
