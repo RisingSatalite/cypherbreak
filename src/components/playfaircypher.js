@@ -5,7 +5,7 @@ export default function PlayfairCypher(){
     const [encyptInput, setEcyptInput] = useState("")
     const [decyptInput, setDecyptInput] = useState("")
     const [Edisplay, setEdisplay] = useState("")
-    const [Ddisplay, setDisplay] = useState("")
+    const [Ddisplay, setDdisplay] = useState("")
 
         // Function to generate the 5x5 key square
         function generateKeyTable(key, ks, keyT) {
@@ -258,6 +258,13 @@ export default function PlayfairCypher(){
           var keyT = generateKeyTable(key);
           return decrypt(str, keyT);
           }
+
+          function Encypt(){
+            setEdisplay(encryptByPlayfairCipher(encyptInput,key))
+          }
+          function Decypt(){
+            setDdisplay(decryptByPlayfairCipher(decyptInput,key))
+          }
           
           // Example usage
 
@@ -285,7 +292,7 @@ export default function PlayfairCypher(){
                 onChange={(e) => setEcyptInput(e.target.value)}
                 placeholder="Enter text to encypt"
             />
-            <button onClick={() => Encypt(encyptInput, shift)}>
+            <button onClick={() => Encypt()}>
                 <div>Encypt</div>
             </button>
             <div>{Edisplay}</div>
@@ -295,7 +302,7 @@ export default function PlayfairCypher(){
                 onChange={(e) => setDecyptInput(e.target.value)}
                 placeholder="Enter text to decrypt" 
             />
-            <button onClick={() => Decypt(decyptInput, shift)}>
+            <button onClick={() => Decypt()}>
                 <div>Decypt</div>
             </button>
             <div>{Ddisplay}</div>
