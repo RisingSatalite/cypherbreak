@@ -30,6 +30,28 @@ export default function Base32() {
         return base32;
     }
 
+    const DecryptBase32 = (value) => {
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+        let bits = '';
+
+        // Convert each Base32 character to its 5-bit binary representation
+        for (let i = 0; i < value.length; i++) {
+            const idx = alphabet.indexOf(value[i].toUpperCase());
+            if (idx === -1) continue; // skip invalid chars
+            bits += idx.toString(2).padStart(5, '0');
+        }
+
+        // Group bits into bytes and convert to characters
+        let decoded = '';
+        for (let i = 0; i < bits.length; i += 8) {
+            const byte = bits.substr(i, 8);
+            if (byte.length < 8) continue;
+            decoded += String.fromCharCode(parseInt(byte, 2));
+        }
+
+        return decoded;
+    }
+
     const Encypt = (value) => {
         EsetDisplay(ToBase32(value))
         if(value === ""){
@@ -37,7 +59,7 @@ export default function Base32() {
         }
     }
     const Decypt = (value) => {
-        DsetDisplay(caesarShift(value))
+        DsetDisplay(DecryptBase32(value))
         if(value === ""){
             DsetDisplay("Enter a value for Decypt first")
         }
